@@ -16,6 +16,7 @@ The project files and folders are organized as follows:
 ```
 root                    (project root folder)
 +-- pong                (source code for game)
+  +-- assets            (resources used by the game: images, sounds, etc.)
   +-- game              (specific game classes)
     +--- casting
     +--- directing
