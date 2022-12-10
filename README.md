@@ -8,7 +8,7 @@ The game starts with level 0. The level is changed every time the score turns to
 The racket has the ability to change the ball direction. When the ball hits the bottom of the racket, the ball is directed downwards. The further down, the greater the angle of rebound. The same reasoning applies when the ball hits the top.
 The greater the contact area between the ball and the racket, the greater the intensity of the return of the ball.
 
-The main changes from Batter to Pong are listed below.
+The main changes from Batter to Pong are listed more below.
 
 ## Project Structure
 ---
