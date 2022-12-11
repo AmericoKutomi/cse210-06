@@ -1,0 +1,97 @@
+@startuml Modelo Pong
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+    class Rectangle {}
+
+    class Ball {}
+    class Label {}
+    class Stats {}
+    class Actor {}
+    class Racket {}
+
+    Actor <-- Ball: is\nderived\nfrom
+    Actor <-- Label: is\nderived\nfrom
+    Actor <-- Stats: is\nderived\nfrom
+    Actor <-- Score: is\nderived\nfrom
+    Actor <-- Racket: is\nderived\nfrom
+    
+    class Cast {
+        List Actors
+    }
+
+    Cast --> Actor : has a \nlist of
+
+    class ActionCallback
+    class Director {}
+    ActionCallback <-- Director: is\nderived\nfrom
+
+    class SceneManager {}
+    
+    Animation <-- SceneManager: uses
+    Ball <-- SceneManager: uses
+    Body <-- SceneManager: uses
+    Image <-- SceneManager: uses
+    Label <-- SceneManager: uses
+    Point <-- SceneManager: uses
+    Racket <-- SceneManager: uses
+    Stats <-- SceneManager: uses
+    Text <-- SceneManager: uses
+
+    SceneManager --> ChangeSceneAction: executes
+    SceneManager --> CheckOverAction: executes
+    SceneManager --> CollideBordersAction: executes
+    SceneManager --> CollideRacketAction: executes
+    SceneManager --> ControlRacketAction: executes
+    SceneManager --> DrawBallAction: executes
+    SceneManager --> DrawDialogAction: executes
+    SceneManager --> DrawHudAction: executes
+    SceneManager --> DrawRacketAction: executes
+    SceneManager --> EndDrawingAction: executes
+    SceneManager --> InitializeDevicesAction: executes
+    SceneManager --> LoadAssetsAction: executes
+    SceneManager --> MoveBallAction: executes
+    SceneManager --> MoveRacketAction: executes
+    SceneManager --> PlaySoundAction: executes
+    SceneManager --> ReleaseDevicesAction: executes
+    SceneManager --> StartDrawingAction: executes
+    SceneManager --> TimedChangeSceneAction: executes
+    SceneManager --> UnloadAssetsAction: executes
+
+    Action <-- ChangeSceneAction: derived\nfrom
+    Action <-- CheckOverAction: derived\nfrom
+    Action <-- CollideBordersAction: derived\nfrom
+    Action <-- CollideRacketAction: derived\nfrom
+    Action <-- ControlRacketAction: derived\nfrom
+    Action <-- DrawBallAction: derived\nfrom
+    Action <-- DrawDialogAction: derived\nfrom
+    Action <-- DrawHudAction: derived\nfrom
+    Action <-- DrawRacketAction: derived\nfrom
+    Action <-- EndDrawingAction: derived\nfrom
+    Action <-- InitializeDevicesAction: derived\nfrom
+    Action <-- LoadAssetsAction: derived\nfrom
+    Action <-- MoveBallAction: derived\nfrom
+    Action <-- MoveRacketAction: derived\nfrom
+    Action <-- PlaySoundAction: derived\nfrom
+    Action <-- ReleaseDevicesAction: derived\nfrom
+    Action <-- StartDrawingAction: derived\nfrom
+    Action <-- TimedChangeSceneAction: derived\nfrom
+    Action <-- UnloadAssetsAction: derived\nfrom
+
+    class Action {}
+
+    class Script {}
+
+    Script --> Action: has a \nlist of 
+
+    SceneManager --> RaylibAudioService: uses
+    SceneManager --> RaylibKeyboardService: uses
+    SceneManager --> RaylibPhysicsService: uses
+    SceneManager --> RaylibVideoService: uses
+
+    AudioService <-- RaylibAudioService: is\nderived\nfrom
+    KeyboardService <-- RaylibKeyboardService: is\nderived\nfrom
+    PhysicsService <-- RaylibPhysicsService: is\nderived\nfrom
+    VideoService <-- RaylibVideoService: is\nderived\nfrom
+
+@enduml
