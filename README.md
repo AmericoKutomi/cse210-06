@@ -38,5 +38,9 @@ root                    (project root folder)
 ## Main Changes
 ```
 ball.py: new method bounce_direction_intensity - the way the racket collides to the ball changes the ball direction and ball acceleration
+cast.py: new method get_second_actor - as the game works with two players, several actors work in pairs; this method returns the second actor of each group
+racket.py: new attributes and methods - attribute lives; new methods swing_down, swing_up, add_life, get_lives, and lose_life
+stats.py: the attributes were changed to accomodate the game score and points
+scene_manager: the most important class that was changed is SceneManager; see all the changes in the souce code especially in _prepare_new_game, _prepare_try_again, and _prepare_game_over.
 
 ```
