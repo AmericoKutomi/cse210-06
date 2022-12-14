@@ -37,4 +37,6 @@ root                    (project root folder)
 
 ## Main Changes
 ```
+ball.py: new method bounce_direction_intensity - the way the racket collides to the ball changes the ball direction and ball acceleration
+
 ```
