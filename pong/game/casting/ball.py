@@ -20,17 +20,27 @@ class Ball(Actor):
         self._image = image
 
     def bounce_direction_intensity(self, percentage_collision_position, acceleration, minimun_velocity):
-        """Bounces the ball in the x direction."""
+        """Bounces the ball in the x direction.
+            It gives the racket the ability to change the ball direction
+            as the ball intensity
+        """
         velocity = self._body.get_velocity()
         # inverts x direction and apply the acceleration: range 0.7 to 1.1
         vx = velocity.get_x() * (0.4 * acceleration + 0.7) * -1
+        # if the new velocity is less than the minimun velocity,
+        #   the minimun velocity is assumed.
+        # as the velocity can be negative, the absolute function is used
         if abs(vx) < minimun_velocity:
             if vx < 0:
                 vx = minimun_velocity * -1
             else:
                 vx = minimun_velocity
+        # here, the ball will change the direction instead of just
+        #   bounce in the racket as the racket was a wall.
+        #   the angle is changed depending on the portion of the racket
+        #   the ball hits.
         vy = 2 * percentage_collision_position - 1
-        if abs(vy) < minimun_velocity:
+        if abs(vy) < minimun_velocity:    # a minimun velocity has to be considered
             if vy < 0:
                 vy = minimun_velocity * -1
             else:
