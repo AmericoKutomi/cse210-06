@@ -44,6 +44,9 @@ stats.py: the attributes were changed to accomodate the game score and points
 collide_borders_action: as the game works in the horizontal direction, this class was dramatically changed to have balls bouncing on top and bottom, and to make the players lose lives when the ball reaches the right and left edges
 collide_racket_action: the execute method has an internal function ball_collide_with_racket that will determine which behaviour the ball will have according to the way it collides to the racket
 control_racket_action: it considers two players, so the keys w and s, and i and k, work for players 1 and 2 respectively
+draw_hud_action: it was changed to show the lives of both players, and the overall level and score information
+draw_racket_action: it draws two vertical rackets
+move_racket_action: it considers two rackets instead of one
 scene_manager: the class that controls the game; see all the changes in the souce code especially in _prepare_new_game, _prepare_try_again, and _prepare_game_over.
 
 ```
